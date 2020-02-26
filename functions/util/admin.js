@@ -1,10 +1,11 @@
 const admin = require('firebase-admin')
 
-const { key } = require('./config')
+const serviceAccount = require('./firebase-key.json')
 
 admin.initializeApp({
-	credential: admin.credential.cert(key),
-	databaseURL: 'https://socialnetworkreact.firebaseio.com'
+	credential: admin.credential.cert(serviceAccount),
+	databaseURL: 'https://socialnetworkreact.firebaseio.com',
+	storageBucket: 'socialnetworkreact.appspot.com'
 })
 
 const db = admin.firestore()
